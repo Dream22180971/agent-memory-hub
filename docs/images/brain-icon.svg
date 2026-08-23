@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200">
+  <defs>
+    <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="50%" stop-color="#bc8cff"/>
+      <stop offset="100%" stop-color="#f778ba"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <circle cx="100" cy="100" r="78" fill="none" stroke="url(#brainGrad)" stroke-width="1" opacity="0.3"/>
+
+  <!-- Brain icon (simplified path) -->
+  <g transform="translate(100,100) scale(1)" filter="url(#glow)">
+    <path d="
+      M 0 -40
+      C 15 -42, 30 -35, 35 -22
+      C 42 -20, 46 -12, 44 -2
+      C 48 4, 48 14, 42 20
+      C 44 28, 38 36, 28 38
+      C 26 44, 18 48, 8 46
+      C 2 50, -8 50, -14 46
+      C -22 48, -30 42, -32 34
+      C -40 32, -46 22, -44 12
+      C -48 6, -46 -4, -40 -10
+      C -42 -20, -36 -32, -24 -38
+      C -18 -42, -10 -42, 0 -40
+      Z
+    " fill="url(#brainGrad)" opacity="0.9"/>
+
+    <!-- Brain folds -->
+    <path d="M 0 -38 C -5 -20, 5 -5, 0 15" stroke="#0d1117" stroke-width="2.5" fill="none" opacity="0.5"/>
+    <path d="M -20 -30 C -10 -15, -15 5, -20 25" stroke="#0d1117" stroke-width="2" fill="none" opacity="0.4"/>
+    <path d="M 20 -30 C 10 -15, 15 5, 20 25" stroke="#0d1117" stroke-width="2" fill="none" opacity="0.4"/>
+    <path d="M -30 -5 C -15 0, 10 5, 30 -5" stroke="#0d1117" stroke-width="2" fill="none" opacity="0.3"/>
+    <path d="M -25 18 C -10 22, 10 22, 25 18" stroke="#0d1117" stroke-width="2" fill="none" opacity="0.3"/>
+  </g>
+
+  <!-- Connection nodes -->
+  <circle cx="55" cy="55" r="4" fill="#58a6ff" opacity="0.8"/>
+  <circle cx="145" cy="55" r="4" fill="#bc8cff" opacity="0.8"/>
+  <circle cx="50" cy="140" r="4" fill="#f778ba" opacity="0.8"/>
+  <circle cx="150" cy="140" r="4" fill="#58a6ff" opacity="0.8"/>
+
+  <!-- Connection lines -->
+  <line x1="55" y1="55" x2="78" y2="78" stroke="#58a6ff" stroke-width="1" opacity="0.4"/>
+  <line x1="145" y1="55" x2="122" y2="78" stroke="#bc8cff" stroke-width="1" opacity="0.4"/>
+  <line x1="50" y1="140" x2="78" y2="118" stroke="#f778ba" stroke-width="1" opacity="0.4"/>
+  <line x1="150" y1="140" x2="122" y2="118" stroke="#58a6ff" stroke-width="1" opacity="0.4"/>
+</svg>

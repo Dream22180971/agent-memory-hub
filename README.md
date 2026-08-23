@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/images/hero-banner.svg" width="100%" alt="agent-memory-hub"/>
+<img src="docs/images/brain-icon.svg" width="160" alt="agent-memory-hub"/>
 
 # agent-memory-hub
 
