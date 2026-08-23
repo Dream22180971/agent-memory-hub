@@ -1,0 +1,10 @@
+# local sync state (machine-specific, must not be synced)
+scripts/sync_state.json
+
+# python
+__pycache__/
+*.pyc
+
+# os
+.DS_Store
+Thumbs.db
