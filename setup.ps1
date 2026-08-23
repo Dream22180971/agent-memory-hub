@@ -73,10 +73,22 @@ if (Test-Path "$HOME\.claude") {
     Write-Host "  [Claude] not detected, skipped" -ForegroundColor DarkGray
 }
 
-# Hermes — root memory files
-if (Test-Path "$HOME\.hermes") {
-    Install-Pointer "$SharedDir\agents\hermes\MEMORY.md" "$HOME\.hermes\MEMORY.md" "Hermes"
-    Install-Pointer "$SharedDir\agents\hermes\USER.md" "$HOME\.hermes\USER.md" "Hermes"
+# Hermes — root memory files (auto-detect common paths)
+$HermesDir = $null
+foreach ($candidate in @(
+    "$HOME\.hermes",
+    "$HOME\.config\hermes",
+    "$env:LOCALAPPDATA\hermes",
+    "$env:APPDATA\hermes"
+)) {
+    if ($candidate -and (Test-Path -LiteralPath $candidate -ErrorAction SilentlyContinue)) {
+        $HermesDir = $candidate
+        break
+    }
+}
+if ($HermesDir) {
+    Install-Pointer "$SharedDir\agents\hermes\MEMORY.md" "$HermesDir\MEMORY.md" "Hermes"
+    Install-Pointer "$SharedDir\agents\hermes\USER.md" "$HermesDir\USER.md" "Hermes"
 } else {
     Write-Host "  [Hermes] not detected, skipped" -ForegroundColor DarkGray
 }

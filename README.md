@@ -29,7 +29,7 @@
 
 ```bash
 # 1. clone 到任意固定位置（建议 ~/.shared）
-git clone https://github.com/seanwalter/agent-memory-hub ~/.shared
+git clone https://github.com/<you>/agent-memory-hub ~/.shared
 
 # 2. 运行安装脚本（自动检测你装了哪些 Agent，只为它们接入）
 cd ~/.shared
@@ -77,7 +77,7 @@ git push -u origin main
 |-------|----------|----------|
 | OpenCode | `opencode` 命令或 `~/.config/opencode` | `~/AGENTS.md` |
 | Claude Code | `~/.claude` | `~/.claude/CLAUDE.md` |
-| Hermes | `~/.hermes` | `~/.hermes/MEMORY.md` + `USER.md` |
+| Hermes | `~/.hermes` / `~/.config/hermes` / `%LOCALAPPDATA%\hermes` | `<hermes-dir>/MEMORY.md` + `USER.md` |
 | QClaw | `~/.qclaw/workspace` | `workspace/MEMORY.md` |
 | OpenClaw | `~/.openclaw/workspace` | `workspace/MEMORY.md` |
 

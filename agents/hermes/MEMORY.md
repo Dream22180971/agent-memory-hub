@@ -1,4 +1,4 @@
-﻿# Hermes Memory
+# Hermes Memory
 
 > Hermes Agent 已接入跨 Agent 记忆中枢。
 

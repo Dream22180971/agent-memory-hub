@@ -63,10 +63,17 @@ else
     echo "  [Claude] not detected, skipped"
 fi
 
-# Hermes
-if [[ -d "$HOME/.hermes" ]]; then
-    install_pointer "$SHARED_DIR/agents/hermes/MEMORY.md" "$HOME/.hermes/MEMORY.md" "Hermes"
-    install_pointer "$SHARED_DIR/agents/hermes/USER.md" "$HOME/.hermes/USER.md" "Hermes"
+# Hermes — root memory files (auto-detect common paths)
+HERMES_DIR=""
+for candidate in "$HOME/.hermes" "$HOME/.config/hermes" "${XDG_DATA_HOME:-$HOME/.local/share}/hermes"; do
+    if [[ -d "$candidate" ]]; then
+        HERMES_DIR="$candidate"
+        break
+    fi
+done
+if [[ -n "$HERMES_DIR" ]]; then
+    install_pointer "$SHARED_DIR/agents/hermes/MEMORY.md" "$HERMES_DIR/MEMORY.md" "Hermes"
+    install_pointer "$SHARED_DIR/agents/hermes/USER.md" "$HERMES_DIR/USER.md" "Hermes"
 else
     echo "  [Hermes] not detected, skipped"
 fi

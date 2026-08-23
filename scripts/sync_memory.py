@@ -7,7 +7,7 @@ regenerates memory/INDEX.md, and (optionally) commits changes to git.
 
 Active sources (auto-detected, skipped silently if absent):
   - Claude Code : ~/.claude/projects/*/memory/*.md
-  - Hermes      : ~/.hermes/{MEMORY,USER,SOUL,IDENTITY}.md + state.db sessions
+  - Hermes      : auto-detects ~/.hermes, ~/.config/hermes, %LOCALAPPDATA%/hermes
   - OpenCode    : writes directly into memory/opencode/ (this repo)
 
 Usage:
@@ -33,7 +33,15 @@ MEMORY = HUB / "memory"
 SYNC_STATE = HUB / "scripts" / "sync_state.json"
 
 CLAUDE_PROJECTS = HOME / ".claude" / "projects"
-HERMES_DIR = HOME / ".hermes"
+
+# Hermes: auto-detect across common install locations
+_HERMES_CANDIDATES = [
+    HOME / ".hermes",                                          # legacy / Linux default
+    HOME / ".config" / "hermes",                               # XDG (Linux/macOS)
+    Path(os.environ.get("LOCALAPPDATA", "")) / "hermes",       # Windows %LOCALAPPDATA%
+    Path(os.environ.get("APPDATA", "")) / "hermes",            # Windows %APPDATA%
+]
+HERMES_DIR = next((p for p in _HERMES_CANDIDATES if p.is_dir()), HOME / ".hermes")
 HERMES_DB = HERMES_DIR / "state.db"
 
 HERMES_ROOT_FILES = ["MEMORY.md", "USER.md", "SOUL.md", "IDENTITY.md"]

@@ -1,4 +1,4 @@
-﻿# AGENTS.md — OpenCode 全局指令
+# AGENTS.md — OpenCode 全局指令
 
 ## 跨 Agent 记忆中枢
 

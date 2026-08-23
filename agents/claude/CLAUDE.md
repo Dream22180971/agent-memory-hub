@@ -1,4 +1,4 @@
-﻿# CLAUDE.md — Claude Code 全局指令
+# CLAUDE.md — Claude Code 全局指令
 
 ## 跨 Agent 记忆中枢
 
