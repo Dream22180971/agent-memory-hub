@@ -1,19 +1,19 @@
-<p align="center">
-  <img src="docs/images/hero-banner.svg" width="100%" alt="agent-memory-hub: One Git repo as shared brain for all your AI Agents"/>
-</p>
+<div align="center">
 
-<p align="center">
-  <a href="https://github.com/Dream22180971/agent-memory-hub/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"/>
-  </a>
-  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg" alt="Platform"/>
-  <img src="https://img.shields.io/badge/python-3.8%2B-green.svg" alt="Python 3.8+"/>
-  <img src="https://img.shields.io/badge/agents-5%20supported-brightgreen.svg" alt="Agents"/>
-</p>
+<img src="docs/images/hero-banner.svg" width="100%" alt="agent-memory-hub"/>
 
-<p align="center">
-  <code>git clone</code> + <code>bash setup.sh</code> = 大脑复活，10 秒。
-</p>
+# agent-memory-hub
+
+**一个 Git 仓库，让你的所有 AI Agent 共用一个大脑。**
+
+`git clone` + `bash setup.sh` = 大脑复活，10 秒。
+
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
+![Python](https://img.shields.io/badge/python-3.8%2B-green.svg)
+![Agents](https://img.shields.io/badge/agents-5%20supported-brightgreen.svg)
+
+</div>
 
 ---
 
