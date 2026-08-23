@@ -1,15 +1,5 @@
 <p align="center">
-  <img src="https://img.icons8.com/3d-fluency/94/brain.png" width="120" alt="brain"/>
-</p>
-
-<h1 align="center">agent-memory-hub</h1>
-
-<p align="center">
-  <strong>一个 Git 仓库，让你的所有 AI Agent 共用一个大脑。</strong>
-</p>
-
-<p align="center">
-  <code>git clone</code> + <code>bash setup.sh</code> = 大脑复活，10 秒。
+  <img src="docs/images/hero-banner.svg" width="100%" alt="agent-memory-hub: One Git repo as shared brain for all your AI Agents"/>
 </p>
 
 <p align="center">
@@ -21,23 +11,23 @@
   <img src="https://img.shields.io/badge/agents-5%20supported-brightgreen.svg" alt="Agents"/>
 </p>
 
+<p align="center">
+  <code>git clone</code> + <code>bash setup.sh</code> = 大脑复活，10 秒。
+</p>
+
 ---
 
 ## 🤔 它解决什么问题
 
-```
-没有 agent-memory-hub 之前：
+<p align="center">
+  <img src="docs/images/before-after.svg" width="100%" alt="Before vs After: 各自失忆 vs 共用大脑"/>
+</p>
 
-  Claude 记住了你的代码风格    → OpenCode 不知道
-  Hermes 聊过的项目进展        → Claude 一无所知
-  换台设备 / 换个 Agent         → 重新自我介绍一遍
-  散落各处的记忆文件            → 换机即丢，无备份
+每个 AI Agent 默认各自失忆——Claude 记住的偏好 OpenCode 不知道，Hermes 聊过的项目 Claude 一无所知。换台设备就从零开始。
 
-有了 agent-memory-hub 之后：
+**agent-memory-hub 的答案：一个 Git 仓库当共享大脑，每个 Agent 放一个指针文件指向它。**
 
-  所有 Agent ──读写──→ 同一个大脑（Git 仓库）
-  换设备？clone + setup，10 秒恢复全部记忆
-```
+---
 
 ## ⚡ 快速开始
 
@@ -62,36 +52,44 @@ python scripts/sync_memory.py --push
 # Windows 用户也可以双击 sync.bat
 ```
 
+---
+
 ## 🏗️ 三层架构
+
+<p align="center">
+  <img src="docs/images/architecture.svg" width="100%" alt="Architecture: 数据层 → 适配层 → 引导层"/>
+</p>
+
+| 层 | 目录 | 职责 |
+|:---|:-----|:-----|
+| 🟢 数据层 | `USER.md` `memory/` `SKILLS.md` | 记忆本体：画像 + 各 Agent 记忆归档 + 共享技能 |
+| 🔵 适配层 | `agents/` | 每个 Agent 一份指针文件模板，`{{SHARED}}` 占位符 |
+| 🟠 引导层 | `setup.ps1` / `setup.sh` | 检测 OS → 检测 Agent → 替换路径 → 分发指针 |
+
+**指针文件 = 接入的全部代价。** setup 把模板里的 `{{SHARED}}` 替换为实际路径，复制到各 Agent 的约定位置。
 
 ```
 ~/.shared/                           ← 这个仓库 = 大脑本体
-│
 ├── USER.md                          ← 你是谁（单一事实来源）
 ├── SKILLS.md                        ← 共享技能索引（可选）
-│
 ├── memory/                          ── 数据层 ──
 │   ├── INDEX.md                     自动生成的记忆索引
 │   ├── claude/                      Claude 的记忆归档
 │   ├── hermes/                      Hermes 的记忆归档
 │   └── opencode/                    OpenCode 的记忆归档
-│
 ├── agents/                          ── 适配层 ──
-│   ├── claude/CLAUDE.md             指针模板：告诉 Claude 去哪读写
-│   ├── hermes/MEMORY.md + USER.md   指针模板：告诉 Hermes 去哪读写
-│   ├── opencode/AGENTS.md           指针模板：告诉 OpenCode 去哪读写
-│   ├── qclaw/MEMORY.md              指针模板（QClaw 已归档）
-│   └── openclaw/MEMORY.md           指针模板（OpenClaw 已归档）
-│
+│   ├── claude/CLAUDE.md             指针模板
+│   ├── hermes/MEMORY.md + USER.md   指针模板
+│   ├── opencode/AGENTS.md           指针模板
+│   ├── qclaw/MEMORY.md              指针模板（归档）
+│   └── openclaw/MEMORY.md           指针模板（归档）
 ├── setup.ps1 / setup.sh             ── 引导层 ──
-│                                    检测 OS → 检测 Agent → 分发指针文件
-│
 ├── scripts/sync_memory.py           归档 + 索引 + git commit
 ├── sync.bat                         Windows 一键同步
 └── machines/                        设备差异层（预留）
 ```
 
-**指针文件 = 接入的全部代价。** setup 把模板里的 `{{SHARED}}` 替换为实际路径，复制到各 Agent 的约定位置。
+---
 
 ## 🤖 支持的 Agent
 
@@ -105,36 +103,42 @@ python scripts/sync_memory.py --push
 
 > **新增 Agent = 3 行代码。** 在 `agents/` 加模板目录 + setup 加检测逻辑。欢迎 PR。
 
+---
+
 ## 🔄 换设备
+
+<p align="center">
+  <img src="docs/images/cross-device.svg" width="100%" alt="换设备流程：clone → setup → 大脑复活"/>
+</p>
 
 ```bash
 git clone git@github.com:<you>/my-memory-hub.git ~/.shared
 cd ~/.shared && bash setup.sh        # 或 .\setup.ps1
 ```
 
-10 秒后，大脑完整复活。
-
-想要 **全新大脑**（不带历史记忆）？
+10 秒后，大脑完整复活。想要 **全新大脑**（不带历史记忆）？
 
 ```bash
 bash setup.sh --fresh    # 只保留骨架，清除所有积累的记忆
 ```
 
+---
+
 ## 🔐 安全第一
 
-你的记忆是隐私数据。本仓库只是 **骨架模板**，克隆后请立即：
+> ⚠️ **你的记忆是隐私数据。** 本仓库只是骨架模板，克隆后请立即转成你自己的私有仓库。
 
 ```bash
-# 1. 转成你自己的私有仓库
+# 删掉指向模板仓库的 remote，换成你自己的私有仓库
 git remote remove origin
 gh repo create my-memory-hub --private
 git remote add origin git@github.com:<you>/my-memory-hub.git
 git push -u origin main
-
-# 2. 永远不要把含个人记忆的仓库设为 public
 ```
 
-`.gitignore` 已排除 `sync_state.json`（机器本地状态）。`memory/` 目录下的记忆文件只存在于你自己的私有仓库。
+`.gitignore` 已排除 `sync_state.json`（机器本地状态）。`memory/` 下的记忆文件只存在于你自己的私有仓库。
+
+---
 
 ## 🧠 工作原理
 
@@ -156,6 +160,8 @@ git push -u origin main
 2. Agent 每次会话启动时读指针 → 读 `USER.md` 画像 → 查 `memory/INDEX.md`
 3. 新的长期记忆写入 `memory/<agent>/`
 4. `sync_memory.py` 归档 + 生成索引 + git commit（`--push` 可选）
+
+---
 
 ## ❓ 设计决策
 
@@ -188,6 +194,8 @@ git hooks 只在 git 操作时触发，监听不到 Agent 直接写文件。同�
 
 </details>
 
+---
+
 ## 📁 目录结构
 
 ```
@@ -208,6 +216,12 @@ agent-memory-hub/
 ├── memory/                  ← 记忆数据（使用后自动积累）
 │   └── README.md
 │
+├── docs/images/             ← 架构图 & 示意图
+│   ├── hero-banner.svg
+│   ├── before-after.svg
+│   ├── architecture.svg
+│   └── cross-device.svg
+│
 ├── machines/                ← 设备差异层（预留）
 │   └── README.md
 │
@@ -218,6 +232,8 @@ agent-memory-hub/
 ├── setup.sh                 ← Linux / macOS 安装脚本
 └── sync.bat                 ← Windows 一键同步
 ```
+
+---
 
 ## 🤝 Contributing
 

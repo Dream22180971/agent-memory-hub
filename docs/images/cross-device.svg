@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="320" rx="12" fill="url(#bg)"/>
+  <text x="450" y="35" text-anchor="middle" fill="#f0f6fc" font-size="18" font-weight="700">换设备 — 10 秒大脑复活</text>
+
+  <!-- Device A -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="180" height="230" rx="10" fill="#21262d" stroke="#30363d" stroke-width="1.5"/>
+    <text x="90" y="25" text-anchor="middle" fill="#f0883e" font-size="13" font-weight="700">💻 Device A</text>
+    <text x="90" y="45" text-anchor="middle" fill="#8b949e" font-size="10">（旧设备，有记忆积累）</text>
+
+    <rect x="15" y="60" width="150" height="28" rx="4" fill="#0d419d44" stroke="#58a6ff44"/>
+    <text x="90" y="79" text-anchor="middle" fill="#58a6ff" font-size="10">🧠 ~/.shared/</text>
+
+    <text x="90" y="110" text-anchor="middle" fill="#c9d1d9" font-size="10">USER.md</text>
+    <text x="90" y="125" text-anchor="middle" fill="#c9d1d9" font-size="10">memory/ (66 claude, 9 hermes...)</text>
+    <text x="90" y="140" text-anchor="middle" fill="#c9d1d9" font-size="10">agents/ (指针文件)</text>
+
+    <rect x="30" y="160" width="120" height="30" rx="6" fill="#238636" stroke="#3fb950"/>
+    <text x="90" y="180" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">git push</text>
+
+    <text x="90" y="215" text-anchor="middle" fill="#6e7681" font-size="9">scripts/sync_memory.py --push</text>
+  </g>
+
+  <!-- GitHub -->
+  <g transform="translate(310, 100)">
+    <rect x="0" y="0" width="120" height="100" rx="50" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+    <text x="60" y="35" text-anchor="middle" fill="#f0f6fc" font-size="28">☁️</text>
+    <text x="60" y="58" text-anchor="middle" fill="#58a6ff" font-size="11" font-weight="700">GitHub</text>
+    <text x="60" y="75" text-anchor="middle" fill="#8b949e" font-size="9">private repo</text>
+    <text x="60" y="88" text-anchor="middle" fill="#8b949e" font-size="9">← 唯一真相源</text>
+  </g>
+
+  <!-- Arrows -->
+  <text x="260" y="155" text-anchor="middle" fill="#3fb950" font-size="24">→</text>
+  <text x="260" y="175" text-anchor="middle" fill="#3fb950" font-size="10">push</text>
+  <text x="500" y="155" text-anchor="middle" fill="#58a6ff" font-size="24">→</text>
+  <text x="500" y="175" text-anchor="middle" fill="#58a6ff" font-size="10">clone</text>
+
+  <!-- Device B -->
+  <g transform="translate(570, 60)">
+    <rect x="0" y="0" width="280" height="230" rx="10" fill="#21262d" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="140" y="25" text-anchor="middle" fill="#3fb950" font-size="13" font-weight="700">💻 Device B</text>
+    <text x="140" y="45" text-anchor="middle" fill="#8b949e" font-size="10">（新设备，从零开始）</text>
+
+    <!-- Step 1 -->
+    <rect x="15" y="60" width="250" height="34" rx="6" fill="#161b22" stroke="#30363d"/>
+    <text x="25" y="76" fill="#f0883e" font-size="11" font-weight="700">①</text>
+    <text x="45" y="76" fill="#c9d1d9" font-size="11">git clone &lt;repo&gt; ~/.shared</text>
+    <text x="250" y="76" fill="#6e7681" font-size="9">3s</text>
+
+    <!-- Step 2 -->
+    <rect x="15" y="100" width="250" height="34" rx="6" fill="#161b22" stroke="#30363d"/>
+    <text x="25" y="116" fill="#f0883e" font-size="11" font-weight="700">②</text>
+    <text x="45" y="116" fill="#c9d1d9" font-size="11">bash setup.sh</text>
+    <text x="250" y="116" fill="#6e7681" font-size="9">5s</text>
+    <text x="140" y="130" text-anchor="middle" fill="#6e7681" font-size="9">检测 Agent → 替换路径 → 分发指针 → 首次同步</text>
+
+    <!-- Step 3 -->
+    <rect x="15" y="142" width="250" height="34" rx="6" fill="#161b22" stroke="#30363d"/>
+    <text x="25" y="158" fill="#f0883e" font-size="11" font-weight="700">③</text>
+    <text x="45" y="158" fill="#c9d1d9" font-size="11">打开任意 Agent</text>
+    <text x="250" y="158" fill="#6e7681" font-size="9">done</text>
+
+    <!-- Result -->
+    <rect x="15" y="186" width="250" height="34" rx="6" fill="#0d419d" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="140" y="207" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">🧠 大脑完整复活 — 你是谁、项目、偏好全知道</text>
+  </g>
+</svg>

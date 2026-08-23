@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#58a6ff" opacity="0.7"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#3fb950" opacity="0.7"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#f0883e" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="560" rx="12" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#f0f6fc" font-size="20" font-weight="700">工作原理 — 三层架构</text>
+
+  <!-- ===== LAYER 1: Data Layer ===== -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="820" height="130" rx="10" fill="#0d1f1233" stroke="#3fb95033" stroke-width="1"/>
+    <rect x="10" y="4" width="90" height="22" rx="4" fill="#3fb95033"/>
+    <text x="55" y="20" text-anchor="middle" fill="#3fb950" font-size="11" font-weight="700">数据层</text>
+
+    <!-- USER.md -->
+    <g transform="translate(20, 35)">
+      <rect x="0" y="0" width="160" height="80" rx="8" fill="#21262d" stroke="#f0883e" stroke-width="1.5"/>
+      <text x="80" y="22" text-anchor="middle" fill="#f0883e" font-size="13" font-weight="700">📄 USER.md</text>
+      <text x="80" y="40" text-anchor="middle" fill="#8b949e" font-size="10">你是谁</text>
+      <text x="80" y="55" text-anchor="middle" fill="#8b949e" font-size="10">偏好 / 项目 / 坐标</text>
+      <text x="80" y="72" text-anchor="middle" fill="#f0883eaa" font-size="9">单一事实来源 ✓</text>
+    </g>
+
+    <!-- memory/ -->
+    <g transform="translate(200, 35)">
+      <rect x="0" y="0" width="300" height="80" rx="8" fill="#21262d" stroke="#58a6ff" stroke-width="1.5"/>
+      <text x="150" y="22" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="700">📁 memory/</text>
+      <g transform="translate(15, 35)">
+        <rect x="0" y="0" width="80" height="28" rx="4" fill="#161b22" stroke="#30363d"/>
+        <text x="40" y="18" text-anchor="middle" fill="#8b949e" font-size="10">claude/</text>
+        <rect x="90" y="0" width="80" height="28" rx="4" fill="#161b22" stroke="#30363d"/>
+        <text x="130" y="18" text-anchor="middle" fill="#8b949e" font-size="10">hermes/</text>
+        <rect x="180" y="0" width="80" height="28" rx="4" fill="#161b22" stroke="#30363d"/>
+        <text x="220" y="18" text-anchor="middle" fill="#8b949e" font-size="10">opencode/</text>
+      </g>
+      <text x="150" y="73" text-anchor="middle" fill="#58a6ffaa" font-size="9">INDEX.md 自动生成 ↻</text>
+    </g>
+
+    <!-- SKILLS.md -->
+    <g transform="translate(520, 35)">
+      <rect x="0" y="0" width="160" height="80" rx="8" fill="#21262d" stroke="#bc8cff" stroke-width="1.5"/>
+      <text x="80" y="22" text-anchor="middle" fill="#bc8cff" font-size="13" font-weight="700">📋 SKILLS.md</text>
+      <text x="80" y="40" text-anchor="middle" fill="#8b949e" font-size="10">共享技能索引</text>
+      <text x="80" y="55" text-anchor="middle" fill="#8b949e" font-size="10">跨 Agent 复用</text>
+      <text x="80" y="72" text-anchor="middle" fill="#bc8cffaa" font-size="9">可选</text>
+    </g>
+
+    <!-- machines/ -->
+    <g transform="translate(700, 35)">
+      <rect x="0" y="0" width="100" height="80" rx="8" fill="#21262d" stroke="#6e7681" stroke-width="1" stroke-dasharray="4"/>
+      <text x="50" y="22" text-anchor="middle" fill="#6e7681" font-size="13" font-weight="700">🖥️</text>
+      <text x="50" y="40" text-anchor="middle" fill="#6e7681" font-size="10">machines/</text>
+      <text x="50" y="55" text-anchor="middle" fill="#6e7681" font-size="10">设备差异</text>
+      <text x="50" y="72" text-anchor="middle" fill="#6e7681aa" font-size="9">预留</text>
+    </g>
+  </g>
+
+  <!-- ===== LAYER 2: Adapter Layer ===== -->
+  <g transform="translate(40, 210)">
+    <rect x="0" y="0" width="820" height="130" rx="10" fill="#0d123333" stroke="#58a6ff33" stroke-width="1"/>
+    <rect x="10" y="4" width="90" height="22" rx="4" fill="#58a6ff33"/>
+    <text x="55" y="20" text-anchor="middle" fill="#58a6ff" font-size="11" font-weight="700">适配层</text>
+
+    <text x="410" y="50" text-anchor="middle" fill="#c9d1d9" font-size="12">agents/ 目录下的指针文件模板，<tspan fill="#58a6ff" font-weight="600">{{SHARED}}</tspan> 占位符在 setup 时替换为实际路径</text>
+
+    <!-- Pointer files -->
+    <g transform="translate(30, 65)">
+      <g>
+        <rect x="0" y="0" width="140" height="48" rx="6" fill="#161b22" stroke="#30363d"/>
+        <text x="70" y="16" text-anchor="middle" fill="#58a6ff" font-size="11" font-weight="600">agents/claude/</text>
+        <text x="70" y="30" text-anchor="middle" fill="#8b949e" font-size="10">CLAUDE.md</text>
+        <text x="70" y="43" text-anchor="middle" fill="#6e7681" font-size="9">→ ~/.claude/</text>
+      </g>
+      <g transform="translate(155, 0)">
+        <rect x="0" y="0" width="140" height="48" rx="6" fill="#161b22" stroke="#30363d"/>
+        <text x="70" y="16" text-anchor="middle" fill="#58a6ff" font-size="11" font-weight="600">agents/hermes/</text>
+        <text x="70" y="30" text-anchor="middle" fill="#8b949e" font-size="10">MEMORY.md</text>
+        <text x="70" y="43" text-anchor="middle" fill="#6e7681" font-size="9">→ ~/.hermes/</text>
+      </g>
+      <g transform="translate(310, 0)">
+        <rect x="0" y="0" width="140" height="48" rx="6" fill="#161b22" stroke="#30363d"/>
+        <text x="70" y="16" text-anchor="middle" fill="#58a6ff" font-size="11" font-weight="600">agents/opencode/</text>
+        <text x="70" y="30" text-anchor="middle" fill="#8b949e" font-size="10">AGENTS.md</text>
+        <text x="70" y="43" text-anchor="middle" fill="#6e7681" font-size="9">→ ~/</text>
+      </g>
+      <g transform="translate(465, 0)">
+        <rect x="0" y="0" width="140" height="48" rx="6" fill="#161b22" stroke="#30363d" stroke-dasharray="3"/>
+        <text x="70" y="16" text-anchor="middle" fill="#6e7681" font-size="11" font-weight="600">agents/qclaw/</text>
+        <text x="70" y="30" text-anchor="middle" fill="#6e7681" font-size="10">MEMORY.md</text>
+        <text x="70" y="43" text-anchor="middle" fill="#6e7681aa" font-size="9">archive</text>
+      </g>
+      <g transform="translate(620, 0)">
+        <rect x="0" y="0" width="140" height="48" rx="6" fill="#161b22" stroke="#30363d" stroke-dasharray="3"/>
+        <text x="70" y="16" text-anchor="middle" fill="#6e7681" font-size="11" font-weight="600">agents/openclaw/</text>
+        <text x="70" y="30" text-anchor="middle" fill="#6e7681" font-size="10">MEMORY.md</text>
+        <text x="70" y="43" text-anchor="middle" fill="#6e7681aa" font-size="9">archive</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ===== LAYER 3: Bootstrap Layer ===== -->
+  <g transform="translate(40, 360)">
+    <rect x="0" y="0" width="820" height="130" rx="10" fill="#1f121833" stroke="#f0883e33" stroke-width="1"/>
+    <rect x="10" y="4" width="90" height="22" rx="4" fill="#f0883e33"/>
+    <text x="55" y="20" text-anchor="middle" fill="#f0883e" font-size="11" font-weight="700">引导层</text>
+
+    <!-- Setup flow -->
+    <g transform="translate(20, 40)">
+      <!-- Step 1 -->
+      <rect x="0" y="0" width="150" height="70" rx="8" fill="#21262d" stroke="#f0883e" stroke-width="1.5"/>
+      <text x="75" y="18" text-anchor="middle" fill="#f0883e" font-size="12" font-weight="700">① 检测</text>
+      <text x="75" y="38" text-anchor="middle" fill="#c9d1d9" font-size="10">OS 是什么？</text>
+      <text x="75" y="53" text-anchor="middle" fill="#c9d1d9" font-size="10">装了哪些 Agent？</text>
+      <text x="75" y="65" text-anchor="middle" fill="#8b949e" font-size="9">多路径探测</text>
+
+      <text x="170" y="40" fill="#f0883e" font-size="22">→</text>
+
+      <!-- Step 2 -->
+      <rect x="195" y="0" width="150" height="70" rx="8" fill="#21262d" stroke="#f0883e" stroke-width="1.5"/>
+      <text x="270" y="18" text-anchor="middle" fill="#f0883e" font-size="12" font-weight="700">② 替换</text>
+      <text x="270" y="38" text-anchor="middle" fill="#c9d1d9" font-size="10"><tspan fill="#58a6ff">{{SHARED}}</tspan></text>
+      <text x="270" y="53" text-anchor="middle" fill="#c9d1d9" font-size="10">→ 实际路径</text>
+      <text x="270" y="65" text-anchor="middle" fill="#8b949e" font-size="9">模板渲染</text>
+
+      <text x="365" y="40" fill="#f0883e" font-size="22">→</text>
+
+      <!-- Step 3 -->
+      <rect x="390" y="0" width="150" height="70" rx="8" fill="#21262d" stroke="#f0883e" stroke-width="1.5"/>
+      <text x="465" y="18" text-anchor="middle" fill="#f0883e" font-size="12" font-weight="700">③ 分发</text>
+      <text x="465" y="38" text-anchor="middle" fill="#c9d1d9" font-size="10">复制指针文件到</text>
+      <text x="465" y="53" text-anchor="middle" fill="#c9d1d9" font-size="10">各 Agent 配置目录</text>
+      <text x="465" y="65" text-anchor="middle" fill="#8b949e" font-size="9">复制，非 symlink</text>
+
+      <text x="560" y="40" fill="#f0883e" font-size="22">→</text>
+
+      <!-- Step 4 -->
+      <rect x="585" y="0" width="150" height="70" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="1.5"/>
+      <text x="660" y="18" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="700">④ 首次同步</text>
+      <text x="660" y="38" text-anchor="middle" fill="#c9d1d9" font-size="10">sync_memory.py</text>
+      <text x="660" y="53" text-anchor="middle" fill="#c9d1d9" font-size="10">归档 + 生成索引</text>
+      <text x="660" y="65" text-anchor="middle" fill="#8b949e" font-size="9">git commit</text>
+    </g>
+  </g>
+
+  <!-- Bottom note -->
+  <text x="450" y="520" text-anchor="middle" fill="#6e7681" font-size="12">setup.ps1（Windows）/ setup.sh（Linux/macOS）— 同一套逻辑，两个平台</text>
+  <text x="450" y="542" text-anchor="middle" fill="#484f58" font-size="11">total: ~500 lines of code · no external dependencies · no database · just files</text>
+</svg>

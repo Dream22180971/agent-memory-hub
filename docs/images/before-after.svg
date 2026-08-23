@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="480" rx="12" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#f0f6fc" font-size="22" font-weight="700">没有 agent-memory-hub vs 有 agent-memory-hub</text>
+
+  <!-- BEFORE -->
+  <g transform="translate(30, 65)">
+    <rect x="0" y="0" width="410" height="390" rx="10" fill="#1c1210" stroke="#f85149" stroke-width="1.5" opacity="0.6"/>
+    <text x="205" y="30" text-anchor="middle" fill="#f85149" font-size="16" font-weight="700">❌ BEFORE — 各自失忆</text>
+
+    <!-- Agent boxes - disconnected -->
+    <rect x="20" y="55" width="110" height="40" rx="6" fill="#21262d" stroke="#f8514966" stroke-width="1"/>
+    <text x="75" y="75" text-anchor="middle" fill="#f85149" font-size="12" font-weight="600">Claude Code</text>
+    <text x="75" y="90" text-anchor="middle" fill="#8b949e" font-size="9">记住了代码风格</text>
+
+    <rect x="150" y="55" width="110" height="40" rx="6" fill="#21262d" stroke="#f8514966" stroke-width="1"/>
+    <text x="205" y="75" text-anchor="middle" fill="#f85149" font-size="12" font-weight="600">OpenCode</text>
+    <text x="205" y="90" text-anchor="middle" fill="#8b949e" font-size="9">什么都不知道</text>
+
+    <rect x="280" y="55" width="110" height="40" rx="6" fill="#21262d" stroke="#f8514966" stroke-width="1"/>
+    <text x="335" y="75" text-anchor="middle" fill="#f85149" font-size="12" font-weight="600">Hermes</text>
+    <text x="335" y="90" text-anchor="middle" fill="#8b949e" font-size="9">聊过的项目进展</text>
+
+    <!-- Disconnected -->
+    <line x1="130" y1="75" x2="150" y2="75" stroke="#f8514933" stroke-width="2" stroke-dasharray="3"/>
+    <line x1="260" y1="75" x2="280" y2="75" stroke="#f8514933" stroke-width="2" stroke-dasharray="3"/>
+    <text x="140" y="70" fill="#f85149" font-size="14">✕</text>
+    <text x="270" y="70" fill="#f85149" font-size="14">✕</text>
+
+    <!-- Pain points -->
+    <g transform="translate(20, 120)">
+      <text x="0" y="0" fill="#f85149cc" font-size="13">▸ Claude 记住的偏好，OpenCode 不知道</text>
+      <text x="0" y="25" fill="#f85149cc" font-size="13">▸ Hermes 聊过的项目，Claude 一无所知</text>
+      <text x="0" y="50" fill="#f85149cc" font-size="13">▸ 换设备 = 从零开始，重新自我介绍</text>
+      <text x="0" y="75" fill="#f85149cc" font-size="13">▸ 散落各处的记忆文件，换机即丢</text>
+    </g>
+
+    <!-- Scattered files -->
+    <g transform="translate(20, 230)">
+      <rect x="0" y="0" width="170" height="60" rx="6" fill="#161b22" stroke="#30363d"/>
+      <text x="10" y="18" fill="#8b949e" font-size="10">~/.claude/memory/</text>
+      <text x="10" y="35" fill="#6e7681" font-size="9">user_profile.md</text>
+      <text x="10" y="48" fill="#6e7681" font-size="9">project_blog.md</text>
+
+      <rect x="220" y="0" width="170" height="60" rx="6" fill="#161b22" stroke="#30363d"/>
+      <text x="230" y="18" fill="#8b949e" font-size="10">~/.hermes/state.db</text>
+      <text x="230" y="35" fill="#6e7681" font-size="9">sessions...</text>
+      <text x="230" y="48" fill="#6e7681" font-size="9">MEMORY.md</text>
+    </g>
+
+    <!-- No backup warning -->
+    <g transform="translate(60, 320)">
+      <rect x="0" y="0" width="290" height="40" rx="6" fill="#3d1f1f" stroke="#f8514944"/>
+      <text x="145" y="16" text-anchor="middle" fill="#f85149" font-size="12" font-weight="600">⚠️ 无备份 · 无同步 · 换机即丢</text>
+      <text x="145" y="32" text-anchor="middle" fill="#f85149aa" font-size="10">记忆散落在各个 Agent 的私有目录</text>
+    </g>
+  </g>
+
+  <!-- Arrow in middle -->
+  <g transform="translate(430, 230)">
+    <text x="20" y="0" text-anchor="middle" fill="#3fb950" font-size="40">→</text>
+    <text x="20" y="20" text-anchor="middle" fill="#3fb950" font-size="10" font-weight="600">git clone</text>
+    <text x="20" y="32" text-anchor="middle" fill="#3fb950" font-size="10" font-weight="600">+ setup</text>
+  </g>
+
+  <!-- AFTER -->
+  <g transform="translate(470, 65)">
+    <rect x="0" y="0" width="410" height="390" rx="10" fill="#0d1f12" stroke="#3fb950" stroke-width="1.5" opacity="0.6"/>
+    <text x="205" y="30" text-anchor="middle" fill="#3fb950" font-size="16" font-weight="700">✅ AFTER — 共用大脑</text>
+
+    <!-- Agent boxes - connected -->
+    <rect x="20" y="55" width="110" height="40" rx="6" fill="#21262d" stroke="#3fb95066" stroke-width="1"/>
+    <text x="75" y="75" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="600">Claude Code</text>
+    <text x="75" y="90" text-anchor="middle" fill="#8b949e" font-size="9">读画像 · 写记忆</text>
+
+    <rect x="150" y="55" width="110" height="40" rx="6" fill="#21262d" stroke="#3fb95066" stroke-width="1"/>
+    <text x="205" y="75" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="600">OpenCode</text>
+    <text x="205" y="90" text-anchor="middle" fill="#8b949e" font-size="9">读画像 · 写记忆</text>
+
+    <rect x="280" y="55" width="110" height="40" rx="6" fill="#21262d" stroke="#3fb95066" stroke-width="1"/>
+    <text x="335" y="75" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="600">Hermes</text>
+    <text x="335" y="90" text-anchor="middle" fill="#8b949e" font-size="9">读画像 · 写记忆</text>
+
+    <!-- Connected to hub -->
+    <line x1="75" y1="95" x2="205" y2="125" stroke="#3fb95066" stroke-width="1.5"/>
+    <line x1="205" y1="95" x2="205" y2="125" stroke="#3fb95066" stroke-width="1.5"/>
+    <line x1="335" y1="95" x2="205" y2="125" stroke="#3fb95066" stroke-width="1.5"/>
+
+    <!-- Central hub -->
+    <rect x="100" y="120" width="210" height="50" rx="8" fill="#0d419d" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="205" y="142" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">🧠  ~/.shared/</text>
+    <text x="205" y="158" text-anchor="middle" fill="#c9d1d9" font-size="10">一个 Git 仓库 = 共享大脑</text>
+
+    <!-- Benefits -->
+    <g transform="translate(20, 195)">
+      <text x="0" y="0" fill="#3fb950cc" font-size="13">✓ 所有 Agent 共享同一份用户画像</text>
+      <text x="0" y="25" fill="#3fb950cc" font-size="13">✓ 记忆自动归档 + 索引</text>
+      <text x="0" y="50" fill="#3fb950cc" font-size="13">✓ git 同步，换设备 10 秒恢复</text>
+      <text x="0" y="75" fill="#3fb950cc" font-size="13">✓ 指针文件接入，零侵入</text>
+    </g>
+
+    <!-- Sync -->
+    <g transform="translate(20, 300)">
+      <rect x="0" y="0" width="170" height="40" rx="6" fill="#161b22" stroke="#58a6ff44"/>
+      <text x="85" y="16" text-anchor="middle" fill="#58a6ff" font-size="10">💻 Device A</text>
+      <text x="85" y="32" text-anchor="middle" fill="#8b949e" font-size="9">git push →</text>
+
+      <text x="195" y="25" text-anchor="middle" fill="#3fb950" font-size="18">⟷</text>
+
+      <rect x="220" y="0" width="170" height="40" rx="6" fill="#161b22" stroke="#58a6ff44"/>
+      <text x="305" y="16" text-anchor="middle" fill="#58a6ff" font-size="10">💻 Device B</text>
+      <text x="305" y="32" text-anchor="middle" fill="#8b949e" font-size="9">← git pull</text>
+    </g>
+  </g>
+</svg>
