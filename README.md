@@ -108,7 +108,7 @@ git push -u origin main
 
 ---
 
-## Why Git instead of a vector database?
+## 💡 Why Git instead of a vector database?
 
 This project optimizes for a small, transparent memory layer:
 
