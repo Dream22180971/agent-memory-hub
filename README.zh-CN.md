@@ -17,7 +17,7 @@
 
 ---
 
-## 它解决什么问题
+## 🎯 它解决什么问题
 
 不同 AI Agent 往往各自保存偏好、项目上下文和长期记忆。换一个工具，或者换一台电脑，之前积累的上下文就重新碎片化。
 
@@ -29,7 +29,7 @@
 
 ---
 
-## 快速开始
+## ⚡ 快速开始
 
 ```bash
 git clone https://github.com/Dream22180971/agent-memory-hub.git ~/.shared
@@ -49,7 +49,7 @@ python scripts/sync_memory.py --push
 
 ---
 
-## 架构
+## 🧩 架构
 
 <p align="center">
   <img src="docs/images/architecture.svg" width="100%" alt="agent-memory-hub 架构图" />
@@ -65,7 +65,7 @@ python scripts/sync_memory.py --push
 
 ---
 
-## 支持的 Agent
+## 🤖 支持的 Agent
 
 | Agent | 状态 | 指针位置 |
 |---|---:|---|
@@ -77,7 +77,7 @@ python scripts/sync_memory.py --push
 
 ---
 
-## 换设备
+## 🔄 换设备
 
 <p align="center">
   <img src="docs/images/cross-device.svg" width="100%" alt="跨设备恢复记忆" />
@@ -93,7 +93,7 @@ bash setup.sh
 
 ---
 
-## 隐私
+## 🔐 隐私
 
 长期记忆可能包含私人信息和项目上下文。
 
@@ -121,7 +121,7 @@ git push -u origin main
 
 ---
 
-## 项目结构
+## 🗂 项目结构
 
 ```text
 agent-memory-hub/
@@ -143,7 +143,7 @@ agent-memory-hub/
 
 ---
 
-## 路线图
+## 🗺 路线图
 
 - [x] Git 共享记忆骨架
 - [x] 跨平台安装脚本
@@ -156,7 +156,7 @@ agent-memory-hub/
 
 ---
 
-## 参与贡献
+## 🤝 参与贡献
 
 欢迎新增 Agent 适配、安装脚本改进、同步可靠性修复和文档 PR。
 
