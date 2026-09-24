@@ -108,7 +108,7 @@ git push -u origin main
 
 ---
 
-## 为什么先用 Git，而不是向量数据库
+## 💡 为什么先用 Git，而不是向量数据库
 
 这个项目优先解决“小规模、透明、可控”的共享记忆问题：
 
@@ -162,7 +162,7 @@ agent-memory-hub/
 
 ---
 
-## License
+## 📄 License
 
 [MIT](LICENSE)
 
