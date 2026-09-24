@@ -17,7 +17,7 @@
 
 ---
 
-## The problem
+## 🎯 The problem
 
 Every AI agent tends to keep its own memory, preferences and project context. Switch tools or machines and the context fragments again.
 
@@ -29,7 +29,7 @@ Every AI agent tends to keep its own memory, preferences and project context. Sw
 
 ---
 
-## Quick Start
+## ⚡ Quick Start
 
 ```bash
 git clone https://github.com/Dream22180971/agent-memory-hub.git ~/.shared
@@ -49,7 +49,7 @@ python scripts/sync_memory.py --push
 
 ---
 
-## Architecture
+## 🧩 Architecture
 
 <p align="center">
   <img src="docs/images/architecture.svg" width="100%" alt="agent-memory-hub architecture" />
@@ -65,7 +65,7 @@ The repository stays the source of truth. Agent-specific files remain thin adapt
 
 ---
 
-## Supported Agents
+## 🤖 Supported Agents
 
 | Agent | Status | Pointer location |
 |---|---:|---|
@@ -77,7 +77,7 @@ The repository stays the source of truth. Agent-specific files remain thin adapt
 
 ---
 
-## Move to another machine
+## 🔄 Move to another machine
 
 <p align="center">
   <img src="docs/images/cross-device.svg" width="100%" alt="Cross-device memory restore" />
@@ -93,7 +93,7 @@ The same repository can restore the shared profile, memory index and adapters on
 
 ---
 
-## Privacy
+## 🔐 Privacy
 
 Your memory can contain sensitive personal and project context.
 
@@ -121,7 +121,7 @@ The goal is not to replace memory frameworks. It is to provide a simple source o
 
 ---
 
-## Project Structure
+## 🗂 Project Structure
 
 ```text
 agent-memory-hub/
@@ -143,7 +143,7 @@ agent-memory-hub/
 
 ---
 
-## Roadmap
+## 🗺 Roadmap
 
 - [x] Shared Git-backed memory skeleton
 - [x] Cross-platform setup scripts
@@ -156,13 +156,13 @@ agent-memory-hub/
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 Useful PRs include new agent adapters, setup improvements, sync reliability fixes and documentation.
 
 ---
 
-## License
+## 📄 License
 
 [MIT](LICENSE)
 
