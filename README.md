@@ -4,32 +4,32 @@
 
 # agent-memory-hub
 
-**Give multiple AI agents one shared, Git-backed memory.**
+**用一个 Git 仓库，让多个 AI Agent 共用一套记忆。**
 
-[English](./README.md) | [简体中文](./README.zh-CN.md)
+[简体中文](./README.md) | [English](./README.en.md)
 
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-64748B?style=for-the-badge)](#quick-start)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-64748B?style=for-the-badge)](#快速开始)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Agents](https://img.shields.io/badge/AGENTS-5-7C3AED?style=for-the-badge)](#supported-agents)
+[![Agents](https://img.shields.io/badge/AGENTS-5-7C3AED?style=for-the-badge)](#支持的-agent)
 [![License](https://img.shields.io/badge/LICENSE-MIT-10B981?style=for-the-badge)](LICENSE)
 
 </div>
 
 ---
 
-## 🎯 The problem
+## 🎯 它解决什么问题
 
-Every AI agent tends to keep its own memory, preferences and project context. Switch tools or machines and the context fragments again.
+不同 AI Agent 往往各自保存偏好、项目上下文和长期记忆。换一个工具，或者换一台电脑，之前积累的上下文就重新碎片化。
 
-**agent-memory-hub uses a Git repository as a shared memory layer and distributes lightweight pointer files to each agent.**
+**agent-memory-hub 用一个 Git 仓库作为共享记忆层，再通过很薄的指针文件把这套记忆接入不同 Agent。**
 
 <p align="center">
-  <img src="docs/images/before-after.svg" width="100%" alt="Before and after shared agent memory" />
+  <img src="docs/images/before-after.svg" width="100%" alt="共享记忆前后对比" />
 </p>
 
 ---
 
-## ⚡ Quick Start
+## ⚡ 快速开始
 
 ```bash
 git clone https://github.com/Dream22180971/agent-memory-hub.git ~/.shared
@@ -39,9 +39,9 @@ bash setup.sh
 # Windows PowerShell: .\setup.ps1
 ```
 
-Then edit `USER.md` with the profile/context you want agents to share.
+然后编辑 `USER.md`，写入你希望多个 Agent 共同读取的画像与上下文。
 
-Daily sync:
+日常同步：
 
 ```bash
 python scripts/sync_memory.py --push
@@ -49,38 +49,38 @@ python scripts/sync_memory.py --push
 
 ---
 
-## 🧩 Architecture
+## 🧩 架构
 
 <p align="center">
-  <img src="docs/images/architecture.svg" width="100%" alt="agent-memory-hub architecture" />
+  <img src="docs/images/architecture.svg" width="100%" alt="agent-memory-hub 架构图" />
 </p>
 
-| Layer | Files | Responsibility |
+| 层 | 文件 | 职责 |
 |---|---|---|
-| **Data** | `USER.md`, `memory/`, `SKILLS.md` | shared profile, memory and skills |
-| **Adapters** | `agents/` | per-agent pointer templates |
-| **Bootstrap** | `setup.ps1`, `setup.sh` | detect agents and distribute pointers |
+| **数据层** | `USER.md`、`memory/`、`SKILLS.md` | 用户画像、长期记忆、共享技能 |
+| **适配层** | `agents/` | 不同 Agent 的指针模板 |
+| **引导层** | `setup.ps1`、`setup.sh` | 检测 Agent 并分发指针 |
 
-The repository stays the source of truth. Agent-specific files remain thin adapters.
+仓库本身始终是真相源，Agent 专属文件只负责指向它。
 
 ---
 
-## 🤖 Supported Agents
+## 🤖 支持的 Agent
 
-| Agent | Status | Pointer location |
+| Agent | 状态 | 指针位置 |
 |---|---:|---|
-| Claude Code | ✅ active | `~/.claude/CLAUDE.md` |
-| OpenCode | ✅ active | `~/AGENTS.md` |
-| Hermes | ✅ active | `MEMORY.md` + `USER.md` under its config path |
-| QClaw | 📦 archived | workspace memory pointer |
-| OpenClaw | 📦 archived | workspace memory pointer |
+| Claude Code | ✅ 活跃 | `~/.claude/CLAUDE.md` |
+| OpenCode | ✅ 活跃 | `~/AGENTS.md` |
+| Hermes | ✅ 活跃 | 配置目录中的 `MEMORY.md` + `USER.md` |
+| QClaw | 📦 归档 | workspace memory pointer |
+| OpenClaw | 📦 归档 | workspace memory pointer |
 
 ---
 
-## 🔄 Move to another machine
+## 🔄 换设备
 
 <p align="center">
-  <img src="docs/images/cross-device.svg" width="100%" alt="Cross-device memory restore" />
+  <img src="docs/images/cross-device.svg" width="100%" alt="跨设备恢复记忆" />
 </p>
 
 ```bash
@@ -89,15 +89,15 @@ cd ~/.shared
 bash setup.sh
 ```
 
-The same repository can restore the shared profile, memory index and adapters on a new machine.
+同一份仓库可以在新设备上恢复共享画像、记忆索引和 Agent 适配文件。
 
 ---
 
-## 🔐 Privacy
+## 🔐 隐私
 
-Your memory can contain sensitive personal and project context.
+长期记忆可能包含私人信息和项目上下文。
 
-For real use, create your own **private repository** instead of storing personal memory in the public template.
+实际使用时，建议把模板复制到你自己的 **私有仓库**，不要把真实个人记忆长期放在公共模板仓库。
 
 ```bash
 git remote remove origin
@@ -108,20 +108,20 @@ git push -u origin main
 
 ---
 
-## 💡 Why Git instead of a vector database?
+## 💡 为什么先用 Git，而不是向量数据库
 
-This project optimizes for a small, transparent memory layer:
+这个项目优先解决“小规模、透明、可控”的共享记忆问题：
 
-- Markdown stays human-readable.
-- Git gives history and cross-device sync.
-- Agents can search files directly.
-- A vector store can still be added later if scale requires it.
+- Markdown 人能直接读。
+- Git 自带版本历史与跨设备同步。
+- Agent 可以直接检索文件。
+- 如果规模变大，后续仍可以叠加向量检索。
 
-The goal is not to replace memory frameworks. It is to provide a simple source of truth first.
+它不是为了替代所有 Memory Framework，而是先提供一个简单可靠的真相源。
 
 ---
 
-## 🗂 Project Structure
+## 🗂 项目结构
 
 ```text
 agent-memory-hub/
@@ -143,22 +143,22 @@ agent-memory-hub/
 
 ---
 
-## 🗺 Roadmap
+## 🗺 路线图
 
-- [x] Shared Git-backed memory skeleton
-- [x] Cross-platform setup scripts
-- [x] Multiple agent adapters
-- [x] Memory indexing and sync
-- [ ] More active agent adapters
-- [ ] Better conflict handling
-- [ ] Optional scheduled sync helpers
-- [ ] Optional semantic-search layer
+- [x] Git 共享记忆骨架
+- [x] 跨平台安装脚本
+- [x] 多 Agent 适配
+- [x] 记忆索引与同步
+- [ ] 更多活跃 Agent 适配
+- [ ] 更好的冲突处理
+- [ ] 可选定时同步辅助
+- [ ] 可选语义检索层
 
 ---
 
-## 🤝 Contributing
+## 🤝 参与贡献
 
-Useful PRs include new agent adapters, setup improvements, sync reliability fixes and documentation.
+欢迎新增 Agent 适配、安装脚本改进、同步可靠性修复和文档 PR。
 
 ---
 
@@ -168,6 +168,6 @@ Useful PRs include new agent adapters, setup improvements, sync reliability fixe
 
 <div align="center">
 
-**One memory source. Many agents. Fewer context resets.**
+**一套记忆源，多种 Agent，少一点上下文重置。**
 
 </div>
